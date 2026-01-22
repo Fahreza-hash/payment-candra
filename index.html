@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="32x32" href="https://web.telegram.org/k/assets/img/favicon-16x16.png?v=jw3mK7G9Ry"> <script>const NonCopyx = 'aHR0cHM6Ly90Lm1lL0hleFpvX05vdF9EZXZ6';</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> <script>const NonCopys = 'TWFkZSBieSBIZXhabw==';</script>
+<title>Canz Payment</title>
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background: transparent;
+        overflow: hidden;
+        font-family: Inter, Poppins, sans-serif;
+    }
+    iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        background: transparent;
+    }
+    .trans {
+        position: fixed;
+        bottom: 12px;
+        right: 16px;
+        background: rgba(0,0,0,0.28);
+        color: rgba(255,255,255,0.9);
+        padding: 8px 14px;
+        border-radius: 12px;
+        font-size: 14px;
+        letter-spacing: 0.6px;
+        backdrop-filter: blur(6px);
+        box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+        transition: transform .18s ease, background .18s ease, opacity .18s ease;
+        user-select: none;
+        -webkit-user-select: none;
+        cursor: pointer;
+    }
+    .trans:hover { transform: translateY(-4px); background: rgba(0,0,0,0.44); }
+    .trans a { color: inherit; text-decoration: none; font-weight:600; }
+    .trans:focus { outline: 2px solid rgba(255,255,255,0.12); }
+</style>
+</head>
+<body>
+
+<iframe id="embeddedSite" src="./bokep.html" allowtransparency="true"></iframe>
+<div class="trans" id="copys" tabindex="0" aria-label="works"></div>
+
+<script>
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('keydown', e => {
+        if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.key === 'U'))
+            e.preventDefault();
+    });
+    function NoCopy(str){
+        try { return atob(str); } catch(e){ return ''; }
+    }
+
+    const noxz = NoCopy(NonCopys);
+    const dashd = NoCopy(NonCopyx);
+    const copys = document.getElementById('copys');
+    copys.innerHTML = `<a href="${dashd}" target="_blank" rel="noopener noreferrer">${noxz}</a>`;
+
+    copys.addEventListener('click', () => {
+        window.open(dashd, '_blank', 'noopener');
+    });
+
+    copys.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            window.open(dashd, '_blank', 'noopener');
+        }
+    });
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+        copys.animate([
+            { transform: 'translateY(0)', opacity: 0.98 },
+            { transform: 'translateY(-2px)', opacity: 1 },
+            { transform: 'translateY(0)', opacity: 0.98 }
+        ], { duration: 2500, iterations: Infinity });
+    }
+</script>
+
+</body>
+</html>
