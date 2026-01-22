@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" sizes="32x32" href="https://web.telegram.org/k/assets/img/favicon-16x16.png?v=jw3mK7G9Ry" data-href="https://web.telegram.org/k/assets/img/favicon-32x32.png?v=jw3mK7G9Ry">
+<title>Canz Payment</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    color: #fff;
+    overflow-x: hidden;
+}
+#adu {
+    background: linear-gradient(90deg, #4a90e2, #357ABD);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+#adu:hover {
+    background: linear-gradient(90deg, #357ABD, #4a90e2);
+    transform: scale(1.05);
+}
+#nmlg {
+    font-weight: 500;
+    font-size: 14px;
+    padding: 0 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#sldw {
+    -webkit-appearance: none;
+    height: 4px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 2px;
+}
+#sldw::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background: #4a90e2;
+    border-radius: 2px;
+    cursor: pointer;
+}
+#sldw::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    background: #4a90e2;
+    border-radius: 2px;
+    cursor: pointer;
+}
+#sldw::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background: #4a90e2;
+    border-radius: 50%;
+    cursor: pointer;
+}
+#sldw::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    background: #4a90e2;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.byr {
+    background: rgba(28, 37, 65, 0.85);
+    margin: 16px;
+    padding: 16px;
+    border-radius: 14px;
+    transition: transform 0.28s, box-shadow 0.28s, opacity 0.45s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(18px);
+}
+.byr.ncl {
+    opacity: 1;
+    transform: translateY(0);
+}
+.byr:hover {
+    transform: scale(1.02);
+    background: rgba(36, 59, 107, 0.95);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.45);
+}
+.kpl {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.inf {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.log {
+    width: 28px;
+    height: 28px;
+    display: flex; 
+    align-items: center;
+    justify-content: center; 
+}
+.log img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+.nm {
+    font-weight: 600;
+    font-size: 16px;
+}
+.det {
+    display: none;
+    margin-top: 12px;
+    background: #0b132b;
+    border-radius: 10px;
+    padding: 12px;
+    transition: max-height 0.32s ease, opacity 0.32s ease;
+    overflow: hidden;
+}
+.det.aktf {
+    display: block;
+}
+.tmb1 {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    background: #00c6ff;
+    color: white;
+    margin-top: 8px;
+    transition: background 0.25s, transform 0.18s;
+}
+.tmb1:hover {
+    background: #0096cc;
+    transform: translateY(-2px);
+}
+.qr {
+    width: 90%; 
+    height: auto; 
+    max-width: 280px; 
+    display: block;
+    margin: 14px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 198, 255, 0.6);
+}
+.lps {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+    padding: 20px;
+}
+.lps.show {
+    display: flex;
+}
+.pop {
+    left: -5%; 
+    right: 0;
+    background: rgba(28, 37, 65, 0.92);
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    position: relative;
+    border: 1px solid rgba(0,198,255,0.08);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.5);
+    max-width: 420px;
+    width: 100%;
+    color: #eaf6ff;
+}
+.tmb2 {
+    background: #ff3b3b;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+.tmb2:hover {
+    background: #cc2d2d;
+}
+.klr {
+    display: block;
+    width: 90%;
+    margin: 24px auto;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: #00c6ff;
+    color: #002033;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.18s, background 0.25s;
+    opacity: 0;
+}
+.klr.ncl {
+    opacity: 1;
+}
+.klr:hover {
+    background: #0096cc;
+    transform: translateY(-3px);
+}
+.kput {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+    background: rgba(28, 37, 65, 0.8);
+    border-bottom: 2px solid #00c8ff;
+    backdrop-filter: blur(5px);
+    opacity: 0;
+}
+.kput img { 
+    width: 52px; 
+    height: 52px;
+    border-radius: 12px;
+    box-shadow: 0 0 12px #00c8ff; 
+}
+h2 {
+    margin: 0;
+    font-weight: 600;
+}
+#bgr {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: #0b132b;
+}
+#ld { 
+    position: fixed;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0b132b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 3000;
+    color: #fff; 
+}
+.spn {
+    border: 6px solid rgba(255, 255, 255, 0.12);
+    border-top: 6px solid #00c6ff;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    animation: ptr 1s linear infinite;
+    margin-bottom: 15px;
+}
+@keyframes ptr {0% {transform: rotate(0deg);}100% {transform: rotate(360deg);}}
+.textld {
+    font-size: 22px;
+    font-weight: bold;
+    color: #00c6ff;
+    text-shadow: 0 0 8px #00c8ff;
+}
+#msik {
+    position: fixed;
+    width: 400px;
+    left: 0; 
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: 20px;
+    background: rgba(20, 20, 20, 0.85);
+    padding: 12px 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    animation: fadeIn 0.8s ease forwards;
+}
+#msik button {
+    background: linear-gradient(135deg, #4a90e2, #357ABD);
+    border: none;
+    padding: 10px;
+    border-radius: 30%;
+    cursor: pointer;
+    font-size: 16px;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+#msik button:hover {
+    transform: scale(1.12);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.45);
+}
+@keyframes fadeIn {from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+</style>
+</head>
+<body>
+<canvas id="bgr"></canvas>
+<div id="ld"><div class="spn"></div><div class="textld">HexLoading..</div></div>
+<header class="kput"><img src="https://i.ibb.co.com/kVGBwMbx/file.png" alt="HexZo Logo"><div><h2>Canz Payment</h2><small>Safest • Trusted • Fastest</small></div></header>
+<div id="wdhbyr"></div>
+<button class="klr" onclick="hbgin()">✅ Send Bukti Pay</button>
+<div class="lps" id="lps" onclick="ttplps(event)">
+    <div class="pop">
+        <button class="tmb2" id="closeLps">Tutup</button>
+        <h3>QRIS Payment</h3>
+        <img id="lpsImg" src="https://i.ibb.co/LDvPNKjf/Qris.jpg" alt="QRIS Code" class="qr"> 
+        <button class="tmb1" id="lpsDownload">Save Qr</button>
+    </div>
+</div>
+<div id="msik">
+    <button id="prev">⏮</button>
+    <button id="play">▶️</button>
+    <button id="next">⏭</button>
+    <div id="nmlg">HexZ</div>
+    <input type="range" id="sldw" value="0">
+</div>
+<script>
+const bylis = [
+  {
+    id: 'd',
+    nm: 'Dana',
+    nom: '085869013814',
+    rec: 'HexZo Network',
+    logo: '<img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg">',
+    saln: true
+  },
+  {
+    id: 'g',
+    nm: 'GoPay',
+    nom: '085869013814',
+    rec: 'HexZo Network',
+    logo: '<img src="https://upload.wikimedia.org/wikipedia/commons/8/86/Gopay_logo.svg">',
+    saln: true
+  },
+  {
+    id: 'o',
+    nm: 'OVO',
+    nom: '085869013814',
+    rec: 'HexZo Network',
+    logo: '<img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Logo_ovo_purple.svg">',
+    saln: true
+  },
+  {
+    id: 'b',
+    nm: 'BCA',
+    nom: 'BLUM TERSEDIA',
+    rec: 'HexZo Network',
+    logo: '<img src="https://www.bca.co.id/-/media/Feature/Card/List-Card/Tentang-BCA/Brand-Assets/Logo-BCA/Logo-BCA_Biru.png">',
+    saln: true
+  },
+  {
+    id: 'q',
+    nm: 'Qris',
+    nom: 'LANGSUNG MINTA SAJA',
+    rec: 'HexZo Network',
+    logo: '<img src="">',
+    saln: false
+  }
+]
+const wdh = document.getElementById('wdhbyr')
+bylis.forEach(function(itm, idx) {
+  const divitm = document.createElement('div')
+  divitm.className = 'byr'
+  const logoHtml = '<div class="log">' + itm.logo + '</div>'
+  if (itm.id !== 'q') {
+    divitm.innerHTML = '' +
+      '<div class="kpl"><div class="inf">' + logoHtml + '<span class="nm">' + itm.nm + '</span></div><span>▼</span></div>'
+    const divdet = document.createElement('div')
+    divdet.className = 'det'
+    divdet.innerHTML = '' +
+      '<p style="margin:0 0 8px 0">Nomer/ID: <b>' + itm.nom + '</b></p>' +
+      '<p style="margin:0 0 8px 0">Atas Nama: <b>' + itm.rec + '</b></p>'
+    if (itm.saln) {
+      const tmbsln = document.createElement('button')
+      tmbsln.className = 'tmb1'
+      tmbsln.innerText = '📋 Copy'
+      tmbsln.onclick = function(e) { e.stopPropagation(); slntks(itm.nom) }
+      divdet.appendChild(tmbsln)
+    }
+    divitm.appendChild(divdet)
+    divitm.addEventListener('click', function(e) { if (!e.target.closest('button')) divdet.classList.toggle('aktf') })
+    wdh.appendChild(divitm)
+  } else {
+    divitm.innerHTML = '' +
+      '<div class="kpl"><div class="inf">' + logoHtml + '<span class="nm">' + itm.nm + '</span></div><span>▶</span></div>'
+    divitm.addEventListener('click', function() { openLps(itm) })
+    wdh.appendChild(divitm)
+  }
+})
+function slntks(tks) {
+  navigator.clipboard.writeText(tks)
+  showToast('✔ Disalin: ' + tks)
+}
+function openLps(itm) {
+  const img = document.getElementById('lpsImg')
+  img.src = getImageSrcFromLogo(itm.logo)
+  document.getElementById('lps').classList.add('show')
+}
+function getImageSrcFromLogo(html) {
+  return html.replace(/<img src=\"|\">/g, '')
+}
+function ttpop() { document.getElementById('lps').classList.remove('show') }
+function ttplps(ev) { if (ev.target.id === 'lps') ttpop() }
+function hbgin() { window.location.href = 'https://t.me/HexZo_Not_Devz' }
+const knvs = document.getElementById('bgr')
+const ctx = knvs.getContext('2d')
+let pnts = []
+let mouseX = 0
+let mouseY = 0
+function szup() {
+  knvs.width = window.innerWidth
+  knvs.height = window.innerHeight
+  pnts = []
+  const cnt = Math.max(18, Math.floor((knvs.width * knvs.height) / 120000))
+  for (let i = 0; i < cnt; i++) {
+    pnts.push({ x: Math.random() * knvs.width, y: Math.random() * knvs.height, vx: (Math.random() - 0.5) * 0.35, vy: (Math.random() - 0.5) * 0.35, r: 1.8 + Math.random() * 1.6 })
+  }
+}
+function run() {
+  ctx.clearRect(0, 0, knvs.width, knvs.height)
+  for (let i = 0; i < pnts.length; i++) {
+    const p = pnts[i]
+    const ax = (mouseX - knvs.width / 2) * 0.0006
+    const ay = (mouseY - knvs.height / 2) * 0.0006
+    p.x += p.vx + ax
+    p.y += p.vy + ay
+    if (p.x < 0 || p.x > knvs.width) p.vx *= -1
+    if (p.y < 0 || p.y > knvs.height) p.vy *= -1
+    ctx.beginPath()
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2)
+    ctx.fillStyle = 'rgba(255,255,255,0.06)'
+    ctx.fill()
+    for (let j = i + 1; j < pnts.length; j++) {
+      const q = pnts[j]
+      const dx = p.x - q.x
+      const dy = p.y - q.y
+      const d = Math.sqrt(dx * dx + dy * dy)
+      if (d < 160) {
+        ctx.strokeStyle = 'rgba(0,198,255,' + (1 - d / 160) * 0.5 + ')'
+        ctx.lineWidth = 1
+        ctx.beginPath()
+        ctx.moveTo(p.x, p.y)
+        ctx.lineTo(q.x, q.y)
+        ctx.stroke()
+      }
+    }
+  }
+  requestAnimationFrame(run)
+}
+window.addEventListener('resize', szup)
+window.addEventListener('mousemove', function(e) { mouseX = e.clientX; mouseY = e.clientY })
+szup()
+run()
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    document.getElementById('ld').style.opacity = '0'
+    setTimeout(function() {
+      document.getElementById('ld').style.display = 'none'
+      document.querySelector('.kput').style.opacity = '1'
+      document.querySelectorAll('.byr').forEach(function(el, i) { setTimeout(function() { el.classList.add('ncl') }, 180 * i) })
+      setTimeout(function() { document.querySelector('.klr').classList.add('ncl') }, bylis.length * 180 + 180)
+    }, 420)
+  }, 900)
+})
+const plis = [
+  { src: './r.mp3' },
+  { src: './q.mp3' },
+  { src: './w.mp3' }
+]
+let trk = 0
+const aud = new Audio()
+const play = document.getElementById('play')
+const prev = document.getElementById('prev')
+const next = document.getElementById('next')
+const nmlg = document.getElementById('nmlg')
+const sldw = document.getElementById('sldw')
+function pley() { aud.src = plis[trk].src; aud.play(); play.innerText = '⏸' }
+function stops() { aud.pause(); play.innerText = '▶️' }
+play.addEventListener('click', function() { aud.paused ? pley() : stops() })
+prev.addEventListener('click', function() { trk = (trk - 1 + plis.length) % plis.length; pley() })
+next.addEventListener('click', function() { trk = (trk + 1) % plis.length; pley() })
+aud.ontimeupdate = function() { sldw.value = (aud.currentTime / aud.duration) * 100 || 0 }
+sldw.oninput = function() { aud.currentTime = (sldw.value / 100) * aud.duration }
+const lps = document.getElementById('lps')
+const lpsImg = document.getElementById('lpsImg')
+const lpsDownload = document.getElementById('lpsDownload')
+const closeLps = document.getElementById('closeLps')
+closeLps.addEventListener('click', function() { lps.classList.remove('show') })
+lps.addEventListener('click', function(e) { if (e.target === lps) lps.classList.remove('show') })
+async function dlimg(url, filename) {
+  try {
+    const res = await fetch(url, { mode: 'cors' })
+    if (!res.ok) throw new Error('http')
+    const blob = await res.blob()
+    const blobUrl = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = blobUrl
+    a.download = filename
+    document.body.appendChild(a)
+    a.click()
+    a.remove()
+    setTimeout(function() { URL.revokeObjectURL(blobUrl) }, 3000)
+    showToast('📥 QR Udh DI Save')
+  } catch (e) {
+    window.open(url, '_blank')
+    showToast('⚠ Fail To Save SS Aja Di Tab Baru')
+  }
+}
+lpsDownload.addEventListener('click', function() { dlimg(lpsImg.src, 'qris_hexzo.jpg') })
+function showToast(t) { const el = document.createElement('div'); el.style.position = 'fixed'; el.style.left = '50%'; el.style.transform = 'translateX(-50%)'; el.style.bottom = '80px'; el.style.background = 'rgba(0,0,0,0.75)'; el.style.color = '#fff'; el.style.padding = '10px 14px'; el.style.borderRadius = '10px'; el.style.zIndex = '9999'; el.innerText = t; document.body.appendChild(el); setTimeout(function() { el.style.transition = 'all .3s'; el.style.opacity = '0'; el.style.transform = 'translateX(-50%) translateY(8px)' }, 1400); setTimeout(function() { el.remove() }, 2000) }
+</script>
+</body>
+</html>
